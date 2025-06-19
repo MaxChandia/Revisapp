@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revisapp - Revolucionando la evaluación con IA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #1e1e2f;
+      --light: #f7f9fc;
+      --text: #333;
+      --text-light: #555;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4 {
+      font-weight: 700;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      color: var(--text-light);
+      font-size: 18px;
+    }
+    
+    /* Navbar */
+    .navbar {
+      display: flex;
+      position: fixed;
+      width: 100%;
+      justify-content: space-between;
+      background: var(--white);
+      align-items: center;
+      padding: 15px 150px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    
+    .navbar .logo {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 25px;
+    }
+    
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    
+    .navbar a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar a:hover {
+      color: var(--primary);
+    }
+    
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white) !important;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white) !important;
+    }
+    
+    .btn-login {
+      color: var(--primary);
+      background: none;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    .btn-login:hover {
+      text-decoration: underline;
+    }
+    
+    /* Hero Section */
+    .hero {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 100px;
+      background: var(--white);
+      font-family: 'Poppins', sans-serif;
+      padding-top: 80px;
+    }
+    
+    .hero-text {
+      width: 50%;
+    }
+    
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--secondary);
+    }
+    
+    .hero p {
+      max-width: 500px;
+      margin-bottom: 30px;
+      color: var(--text-light);
+      font-size: 18px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .hero-image {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    /* Features Section */
+    .features {
+      background: var(--light);
+    }
+    
+    .features-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cards {
+      display: flex;
+      gap: 30px;
+      margin: 40px 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      width: 350px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .card-icon {
+      font-size: 48px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .card p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    
+    /* About Section */
+    .about {
+      background: var(--white);
+    }
+    
+    .about-content {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text h2 {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+    
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .stat-item {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: var(--text-light);
+    }
+    
+    /* How it works */
+    .how-it-works {
+      background: var(--light);
+      text-align: center;
+    }
+    
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    
+    .step {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      width: 300px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .step:hover {
+      transform: translateY(-5px);
+    }
+    
+    .step-number {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    .step h3 {
+      margin: 30px 0 15px;
+      color: var(--secondary);
+    }
+    
+    .step p {
+      color: var(--text-light);
+    }
+    
+    /* FAQ Section */
+    .faq {
+      background: var(--white);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+      cursor: pointer;
+    }
+    
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-answer {
+      padding-top: 15px;
+      color: var(--text-light);
+      display: none;
+    }
+    
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: var(--light);
+    }
+    
+    .contact-container {
+      display: flex;
+      gap: 50px;
+    }
+    
+    .contact-info {
+      flex: 1;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    
+    .contact-details {
+      margin-bottom: 30px;
+    }
+    
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .contact-detail i {
+      color: var(--primary);
+      font-size: 20px;
+      margin-right: 15px;
+      margin-top: 5px;
+    }
+    
+    .contact-form {
+      flex: 1;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    .footer-col {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .footer-logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    .footer p {
+      color: #aaa;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+    
+    .footer h4 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: var(--white);
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+    }
+    
+    /* Floating Button */
+    .floating-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: var(--white);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    .floating-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .navbar {
+        padding: 15px 40px;
+      }
+      
+      .hero {
+        padding: 0 40px;
+        flex-direction: column;
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 60px;
+      }
+      
+      .hero-text, .hero-image {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .hero-text {
+        margin-bottom: 50px;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+      }
+      
+      .navbar ul {
+        display: none;
+      }
+      
+      .cards, .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Revisapp</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#como-funciona">Cómo Funciona</a></li>
+        <li><a href="#faq">Preguntas Frecuentes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="actions">
+      <a href="#revisatuprueba" class="btn btn-primary">Revisa tu prueba</a>
+      <button class="btn-login">Iniciar Sesión</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1>Revoluciona la forma de evaluar pruebas con IA</h1>
+      <p>Revisapp utiliza inteligencia artificial para revisar pruebas automáticamente, generar perfiles de estudiantes y ahorrar tiempo valioso a los profesores.</p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#funcionalidades">Comenzar ahora</a>
+        <a class="btn btn-outline" href="#como-funciona">Conocer más</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?q=80&w=1470&auto=format&fit=crop" alt="Revisapp en acción" style="border-radius: 10px; max-height: 500px;">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section features" id="funcionalidades">
+    <div class="container">
+      <h2 class="section-title">Nuestras Funcionalidades</h2>
+      <p class="section-subtitle">Descubre cómo Revisapp puede transformar tu forma de evaluar y hacer seguimiento al desempeño de tus estudiantes.</p>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>Revisión Automática</h3>
+          <p>Sube hasta 60 imágenes de pruebas y deja que nuestra IA las revise automáticamente según tu rúbrica personalizada.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-file-excel"></i>
+          </div>
+          <h3>Informes de Notas</h3>
+          <p>Recibe informes detallados en formato Excel con las calificaciones y observaciones de cada estudiante.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h3>Perfiles de Estudiantes</h3>
+          <p>Genera perfiles automáticos de cada estudiante basados en su desempeño, identificando fortalezas y áreas de mejora.</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="#contacto" class="btn btn-primary">Probar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="quienes-somos">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">Quiénes Somos</h2>
+          <p>Un equipo apasionado por la educación y la tecnología, dedicado a facilitar la labor docente.</p>
+          
+          <h3>Nuestra Misión</h3>
+          <p>En Revisapp, creemos que los profesores deberían dedicar más tiempo a enseñar y menos a tareas administrativas. Nuestra plataforma utiliza inteligencia artificial avanzada para automatizar el proceso de revisión de pruebas, permitiendo a los educadores enfocarse en lo que realmente importa: sus estudiantes.</p>
+          <p>Desarrollada por un equipo de educadores y expertos en tecnología, Revisapp está diseñada para ser intuitiva, precisa y adaptable a las necesidades específicas de cada profesor y asignatura.</p>
+          
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value">100+</div>
+              <div class="stat-label">Profesores confían en nosotros</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">98%</div>
+              <div class="stat-label">Precisión en revisiones</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">5000+</div>
+              <div class="stat-label">Pruebas revisadas</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">80%</div>
+              <div class="stat-label">Ahorro de tiempo</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop" alt="Equipo Revisapp" style="border-radius: 10px; max-height: 500px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works Section -->
+  <section class="section how-it-works" id="como-funciona">
+    <div class="container">
+      <h2 class="section-title">¿Cómo funciona?</h2>
+      <p class="section-subtitle">Para utilizar esta función, debes iniciar sesión primero</p>
+      
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <i class="fas fa-upload fa-3x" style="color: #2563eb;"></i>
+          <h3>Sube tus pruebas</h3>
+          <p>Sube hasta 60 imágenes de pruebas en formatos JPG, PNG o PDF.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <i class="fas fa-edit fa-3x" style="color: #2563eb;"></i>
+          <h3>Define tu rúbrica</h3>
+          <p>Establece palabras clave y puntajes para cada pregunta o sección.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <i class="fas fa-chart-line fa-3x" style="color: #2563eb;"></i>
+          <h3>Recibe resultados</h3>
+          <p>Obtén un archivo Excel con calificaciones y perfiles detallados.</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="#" class="btn btn-primary">Iniciar sesión</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p class="section-subtitle">Resolvemos tus dudas sobre Revisapp y cómo puede ayudarte en tu labor docente</p>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cómo funciona la revisión automática?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Nuestra IA analiza las respuestas de los estudiantes comparándolas con tu rúbrica personalizada. Utiliza procesamiento de lenguaje natural para entender el contenido y asigna puntajes basados en palabras clave y criterios predefinidos.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Qué formatos de pruebas acepta el sistema?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Aceptamos imágenes en formato JPG, PNG y documentos PDF. Las pruebas deben estar claramente legibles y cada imagen debe contener un solo examen completo.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cómo se generan los perfiles de estudiantes?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Analizamos el desempeño histórico de cada estudiante en diferentes áreas temáticas, identificando patrones de fortalezas y debilidades. Estos perfiles se actualizan automáticamente con cada nueva evaluación.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Es segura la información de mis estudiantes?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, cumplimos con todas las normativas de protección de datos (GDPR y LOPD). Toda la información se almacena cifrada y solo tú tienes acceso a los datos de tus estudiantes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-subtitle">¿Tienes preguntas o comentarios? Estamos aquí para ayudarte</p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+          <p>Estamos impacientes para resolver tus dudas y ayudarte a implementar Revisapp en tu institución educativa.</p>
+          
+          <div class="contact-details">
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <p>contacto@revisapp.cl</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Teléfono</strong>
+                <p>+56 2 2123 4567</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Dirección</strong>
+                <p>Av. Providencia 1234, Santiago, Chile</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" class="form-control"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">Revisapp</div>
+          <p>Revolucionando la forma de evaluar pruebas con inteligencia artificial.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Enlaces rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#como-funciona">Cómo Funciona</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope"></i> contacto@revisapp.cl</li>
+            <li><i class="fas fa-phone"></i> +56 2 2123 4567</li>
+            <li><i class="fas fa-map-marker-alt"></i> Av. Providencia 1234, Santiago</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2023 Revisapp. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Button -->
+  <a href="#revisatuprueba" class="floating-btn">
+    <i class="fas fa-check-circle"></i>
+  </a>
+
+  <script>
+    // FAQ toggle functionality
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        navbar.style.padding = '10px 150px';
+      } else {
+        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        navbar.style.padding = '15px 150px';
+      }
+    });
+  </script>
+</body>
+</html>
