@@ -1,0 +1,7 @@
+{
+  "build": {
+    "installCommand": "npm install --legacy-peer-deps",
+    "buildCommand": "ng build --configuration production && npm run prerender",
+    "outputDirectory": "dist/Revisapp/browser"
+  }
+}
