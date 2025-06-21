@@ -8,7 +8,8 @@
     "prerender": "ng run Revisapp:prerender",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Revisapp": "node dist/Revisapp/server/server.mjs"
+    "serve:ssr:Revisapp": "node dist/Revisapp/server/server.mjs",
+    "vercel-build": "npm install --legacy-peer-deps && ng build --configuration production && npm run prerender"
   },
   "private": true,
   "dependencies": {
