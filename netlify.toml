@@ -1,3 +1,6 @@
 [build]
-  command = "ng build --configuration production"
+  command = "ng build --configuration production && npm run prerender"
   publish = "dist/Revisapp/browser"
+
+[[plugins]]
+  package = "@netlify/angular-runtime"
