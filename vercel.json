@@ -8,8 +8,5 @@
         "distDir": "dist/Revisapp/browser"
       }
     }
-  ],
-  "scripts": {
-    "build": "npm run vercel-build"
-  }
+  ]
 }
