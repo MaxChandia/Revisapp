@@ -1,7 +1,15 @@
 {
-  "build": {
-    "env": {},
-    "buildCommand": "npm run vercel-build",
-    "outputDirectory": "dist/Revisapp/browser"
+  "version": 2,
+  "builds": [
+    {
+      "src": "angular.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/Revisapp/browser"
+      }
+    }
+  ],
+  "scripts": {
+    "build": "npm run vercel-build"
   }
 }
