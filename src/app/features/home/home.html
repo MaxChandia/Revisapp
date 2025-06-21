@@ -1,0 +1,312 @@
+<header class="navbar">
+    <div class="logo">Revisapp</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#faq">Preguntas Frecuentes</a></li>
+        <li><a href="#contacto">Contacto</a></li>   
+        <li><a href="#revisatuprueba" class="buttonSteps">Revisa tu prueba</a></li>   
+        <li><fa-icon [icon]="['fas', 'user']" class='icon-navbar'></fa-icon><a class="btn-login" routerLink='/user'>Login</a></li>   
+      </ul>
+    </nav>
+    <div class="actions">
+      
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1>Revoluciona la forma de evaluar pruebas con IA</h1>
+      <p>Revisapp utiliza inteligencia artificial para revisar pruebas automáticamente, generar perfiles de estudiantes y ahorrar tiempo valioso a los profesores.</p>
+      <div class="hero-buttons">
+        <a class="buttonSteps" href="#funcionalidades">Comenzar ahora</a>
+        <a class="button-hero" href="#funcionalidades">Conocer más</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/image.png" alt="">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section features" id="funcionalidades">
+    <div class="container">
+      <h2 class="section-title">Nuestras Funcionalidades</h2>
+      <p class="section-subtitle">Descubre cómo Revisapp puede transformar tu forma de evaluar y hacer seguimiento al desempeño de tus estudiantes.</p>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <fa-icon [icon]="['fas', 'robot']" class='icon-feature'></fa-icon>
+          </div>
+          <h3>Revisión Automática</h3>
+          <p>Sube hasta 60 imágenes de pruebas y deja que nuestra IA las revise automáticamente según tu rúbrica personalizada.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <fa-icon [icon]="['fas', 'file-excel']" class='icon-feature'></fa-icon>
+          </div>
+          <h3>Informes de Notas</h3>
+          <p>Recibe informes detallados en formato Excel con las calificaciones y observaciones de cada estudiante.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <fa-icon [icon]="['fas', 'user-graduate']" class='icon-feature'></fa-icon>
+          </div>
+          <h3>Perfiles de Estudiantes</h3>
+          <p>Genera perfiles automáticos de cada estudiante basados en su desempeño, identificando fortalezas y áreas de mejora.</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="#contacto" class="buttonSteps">Probar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="quienes-somos">
+    <div class="container-about">
+        <div class="about-header"> 
+            <h2 class="section-title">Quiénes Somos</h2>
+            <p>Un equipo apasionado por la educación y la tecnología, dedicado a facilitar la labor docente.</p>
+        </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Nuestra Misión</h3>
+          <p>En Revisapp, creemos que los profesores deberían dedicar más tiempo a enseñar y menos a tareas administrativas. Nuestra plataforma utiliza inteligencia artificial avanzada para automatizar el proceso de revisión de pruebas, permitiendo a los educadores enfocarse en lo que realmente importa: sus estudiantes.</p>
+          <p>Desarrollada por un equipo de educadores y expertos en tecnología, Revisapp está diseñada para ser intuitiva, precisa y adaptable a las necesidades específicas de cada profesor y asignatura.</p>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Profesores confían en nosotros</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5000+</div>
+                <div class="stat-label">Pruebas revisadas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">98%</div>
+                <div class="stat-label">Precisión en revisiones</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">80%</div>
+                <div class="stat-label">Ahorro de tiempo</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ Section -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p class="section-subtitle">Resolvemos tus dudas sobre Revisapp y cómo puede ayudarte en tu labor docente</p>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cómo funciona la revisión automática?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Nuestra IA analiza las respuestas de los estudiantes comparándolas con tu rúbrica personalizada. Utiliza procesamiento de lenguaje natural para entender el contenido y asigna puntajes basados en palabras clave y criterios predefinidos.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Qué formatos de pruebas acepta el sistema?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Aceptamos imágenes en formato JPG, PNG y documentos PDF. Las pruebas deben estar claramente legibles y cada imagen debe contener un solo examen completo.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cómo se generan los perfiles de estudiantes?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Analizamos el desempeño histórico de cada estudiante en diferentes áreas temáticas, identificando patrones de fortalezas y debilidades. Estos perfiles se actualizan automáticamente con cada nueva evaluación.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Es segura la información de mis estudiantes?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, cumplimos con todas las normativas de protección de datos (GDPR y LOPD). Toda la información se almacena cifrada y solo tú tienes acceso a los datos de tus estudiantes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-subtitle">¿Tienes preguntas o comentarios? Estamos aquí para ayudarte</p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+          <p class="contact-description">Estamos impacientes para resolver tus dudas y ayudarte a implementar Revisapp en tu institución educativa.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <fa-icon [icon]="['fas', 'mail-bulk']" class='contact-icon'></fa-icon>
+              <div>
+                <strong>Email</strong>
+                <p>contacto&#64;revisapp.cl</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <fa-icon [icon]="['fas', 'phone']" class='contact-icon'></fa-icon>
+              <div>
+                <strong>Teléfono</strong>
+                <p>+56 2 2123 4567</p>
+              </div>
+            </div>
+            
+            <div class="contact-detail">
+              <fa-icon [icon]="['fas', 'map-marker-alt']" class='contact-icon'></fa-icon>
+              <div>
+                <strong>Dirección</strong>
+                <p>Av. Providencia 1234, Santiago, Chile</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="asunto">Asunto</label>
+              <input type="text" id="asunto" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" class="form-control"></textarea>
+            </div>
+            
+            <button type="submit" class="buttonContact">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works Section -->
+  <section class="section how-it-works" id="como-funciona">
+    <div class="section-header">
+      <h2 class="section-title">Revisa tu prueba</h2>
+      <p class="section-subtitle">Sube tus pruebas y obtén resultados en minutos. Ahorra tiempo y mejora la precisión de tus evaluaciones.</p>
+    </div>
+    <div class="container-steps">
+      <div class="steps">
+        <div class="header-step">
+            <p class="section-subtitle">Para utilizar esta función, debes iniciar sesión primero</p>
+            <div>
+                <a href="#" class="buttonSteps">Iniciar sesión</a>
+            </div>
+        </div>
+        <hr class="divider">
+        <h3>¿Cómo funciona?</h3>
+        
+        <div class="step-container">
+            <div class="step">
+            <div class="step-number">1</div>
+            <i class="fas fa-upload fa-3x" style="color: #2563eb;"></i>
+            <h3>Sube tus pruebas</h3>
+            <p>Sube hasta 60 imágenes de pruebas en formatos JPG, PNG o PDF.</p>
+            </div>
+            
+            <div class="step">
+            <div class="step-number">2</div>
+            <i class="fas fa-edit fa-3x" style="color: #2563eb;"></i>
+            <h3>Define tu rúbrica</h3>
+            <p>Establece palabras clave y puntajes para cada pregunta o sección.</p>
+            </div>
+            
+            <div class="step">
+            <div class="step-number">3</div>
+            <i class="fas fa-chart-line fa-3x" style="color: #2563eb;"></i>
+            <h3>Recibe resultados</h3>
+            <p>Obtén un archivo Excel con calificaciones y perfiles detallados.</p>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">Revisapp</div>
+          <p>Revolucionando la forma de evaluar pruebas con inteligencia artificial.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Enlaces rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="footer-links">
+            <li><fa-icon [icon]="['fas', 'mail-bulk']" class='contact-icon'></fa-icon>  contacto&#64;   revisapp.cl</li>
+            <li><fa-icon [icon]="['fas', 'phone']" class='contact-icon'></fa-icon> +56 2 2123 4567</li>
+            <li><fa-icon [icon]="['fas', 'map-marker-alt']" class='contact-icon'></fa-icon> Av. Providencia 1234, Santiago</li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Síguenos</h4>
+          <ul class="social-links">
+            <li><a href="#"><fa-icon [icon]="['fab', 'facebook-f']"></fa-icon></a></li>
+            <li><a href="#"><fa-icon [icon]="['fab', 'twitter']"></fa-icon></a></li>
+            <li><a href="#"><fa-icon [icon]="['fab', 'instagram']"></fa-icon></a></li>
+            <li><a href="#"><fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2023 Revisapp. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
