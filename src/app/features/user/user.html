@@ -1,0 +1,251 @@
+<div class="revisapp-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">RevisApp</div>
+    <div class="header-actions">
+      <button class="premium-btn">Actualizar a Premium</button>
+      <button class="profile-btn" (click)="openProfileModal()">
+        {{ userInitials }}
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="user-info">
+        <div class="user-avatar">{{ userInitials }}</div>
+        <div class="user-details">
+          <h3>{{ userData.name }}</h3>
+          <p>{{ userData.profession }}</p>
+          <p>Cuenta Gratuita</p>
+        </div>
+      </div>
+
+      <div class="tokens-info">
+        <h4>Tokens disponibles</h4>
+        <div class="tokens-bar">
+          <div class="tokens-progress"></div>
+        </div>
+        <p class="tokens-text">35/50 tokens restantes este mes</p>
+        <p class="tokens-text">Se renuevan el 1 de junio</p>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">🏠 Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">📋 Mis Rúbricas</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">📚 Mis Cursos</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link premium">📊 Historial de Revisiones</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">⚙️ Configuración</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <h1>Bienvenido, {{ firstName }}</h1>
+        <p>Utiliza RevisApp para revisar pruebas de tus estudiantes de forma automática con IA según tus propias rúbricas.</p>
+      </section>
+
+      <!-- How it Works -->
+      <section class="how-it-works">
+        <h2>¿Cómo funciona RevisApp?</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Sube tu rúbrica en Excel</h3>
+              <p>Incluye los criterios de evaluación y palabras clave que la IA debe buscar en las respuestas.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Sube las pruebas a evaluar</h3>
+              <p>Puedes subir múltiples pruebas en formato Excel para su revisión simultánea.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Obtén resultados detallados</h3>
+              <p>Descarga un archivo Excel con los resultados de la evaluación automática de cada prueba.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upload Sections -->
+      <section class="upload-sections">
+        <!-- Rubric Upload -->
+        <div class="upload-card" [class.has-files]="uploadedFiles.rubric.length > 0">
+          <div class="upload-icon">📋</div>
+          <h3>Subir Rúbrica</h3>
+          <p>Arrastra y suelta tu archivo Excel de rúbrica aquí</p>
+          <button class="upload-btn" (click)="triggerFileInput('rubricInput')">
+            Seleccionar archivo
+          </button>
+          <input 
+            type="file" 
+            id="rubricInput" 
+            class="file-input" 
+            accept=".xlsx,.xls" 
+            (change)="onFileSelected($event, 'rubric')"
+          >
+          <p class="formats">Formatos aceptados: .xlsx, .xls</p>
+          
+          <div class="file-list" *ngIf="uploadedFiles.rubric.length > 0">
+            <div class="file-item" *ngFor="let file of uploadedFiles.rubric; let i = index">
+              <div class="file-info">
+                <span>{{ file.name }}</span>
+              </div>
+              <button class="use-btn" (click)="removeFile('rubric', i)">Usar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tests Upload -->
+        <div class="upload-card" [class.has-files]="uploadedFiles.tests.length > 0">
+          <div class="upload-icon">📄</div>
+          <h3>Subir Pruebas</h3>
+          <p>Arrastra y suelta tus archivos Excel de pruebas aquí</p>
+          <button class="upload-btn" (click)="triggerFileInput('testsInput')">
+            Seleccionar archivos
+          </button>
+          <input 
+            type="file" 
+            id="testsInput" 
+            class="file-input" 
+            accept=".xlsx,.xls" 
+            multiple 
+            (change)="onFileSelected($event, 'tests')"
+          >
+          <p class="formats">Formatos aceptados: .xlsx, .xls</p>
+          
+          <div class="file-list" *ngIf="uploadedFiles.tests.length > 0">
+            <div class="file-item" *ngFor="let file of uploadedFiles.tests; let i = index">
+              <div class="file-info">
+                <span>{{ file.name }}</span>
+              </div>
+              <button class="use-btn" (click)="removeFile('tests', i)">Usar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Start Review -->
+      <section class="start-review">
+        <a href="assets/Prueba_Bases_de_Innovación_EA3.xlsx" download='Prueba_Bases_de_Innovación_EA3.xlsx'>
+            <button class="start-review-btn">
+            ⚡ Iniciar Revisión
+            </button>
+        </a>
+      </section>
+
+      <!-- History Section -->
+      <section class="history-section">
+        <div class="history-header">
+          <h2 class="history-title">Historial de Revisiones</h2>
+          <span class="premium-badge">Premium</span>
+        </div>
+        
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Curso</th>
+              <th>Rúbrica</th>
+              <th>Pruebas</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15/05/2023</td>
+              <td>2° ESO A</td>
+              <td>Rúbrica_Álgebra_2°ESO.xlsx</td>
+              <td>25 pruebas</td>
+              <td><span class="status-badge status-completed">Completado</span></td>
+              <td><a href="#" class="download-btn">Descargar</a></td>
+            </tr>
+            <tr>
+              <td>10/05/2023</td>
+              <td>3° ESO B</td>
+              <td>Rúbrica_Geometría_3°ESO.xlsx</td>
+              <td>28 pruebas</td>
+              <td><span class="status-badge status-completed">Completado</span></td>
+              <td><a href="#" class="download-btn">Descargar</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="premium-overlay">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+          <h3>Función Premium</h3>
+          <p>Actualiza a Premium para guardar tu historial de revisiones y acceder a ellas en cualquier momento.</p>
+          <button class="upgrade-btn">Actualizar a Premium</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Profile Modal -->
+  <div class="modal" [class.show]="showProfileModal" *ngIf="showProfileModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Editar Perfil</h2>
+        <button class="close-btn" (click)="closeProfileModal()">&times;</button>
+      </div>
+      <form (ngSubmit)="saveProfile()">
+        <div class="form-group">
+          <label for="editName">Nombre completo</label>
+          <input 
+            type="text" 
+            id="editName" 
+            [(ngModel)]="editUserData.name" 
+            name="name"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="editEmail">Email</label>
+          <input 
+            type="email" 
+            id="editEmail" 
+            [(ngModel)]="editUserData.email" 
+            name="email"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="editProfession">Profesión</label>
+          <input 
+            type="text" 
+            id="editProfession" 
+            [(ngModel)]="editUserData.profession" 
+            name="profession"
+          >
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" (click)="closeProfileModal()">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
