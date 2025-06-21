@@ -57,7 +57,15 @@
             }
           },
           "defaultConfiguration": "production"
-        },
+        },"prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "Revisapp:build:production",
+            "serverTarget": "Revisapp:server:production",
+            "routes": [
+              "/"
+            ]
+          }},
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
