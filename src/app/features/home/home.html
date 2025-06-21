@@ -32,54 +32,43 @@
   </section>
 
   <!-- Features Section -->
-<section class="section faq" id="faq">
-  <div class="container">
-    <h2 class="section-title">Preguntas Frecuentes</h2>
-    <p class="section-subtitle">Resolvemos tus dudas sobre Revisapp y cómo puede ayudarte en tu labor docente</p>
-    
-    <div class="faq-container">
-      <div class="faq-item" [class.active]="isFaqActive(0)">
-        <div class="faq-question" (click)="toggleFAQ(0)">
-          <span>¿Cómo funciona la revisión automática?</span>
-          <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon>
+  <section class="section features" id="funcionalidades">
+    <div class="container">
+      <h2 class="section-title">Nuestras Funcionalidades</h2>
+      <p class="section-subtitle">Descubre cómo Revisapp puede transformar tu forma de evaluar y hacer seguimiento al desempeño de tus estudiantes.</p>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">
+            <fa-icon [icon]="['fas', 'robot']" class='icon-feature'></fa-icon>
+          </div>
+          <h3>Revisión Automática</h3>
+          <p>Sube hasta 60 imágenes de pruebas y deja que nuestra IA las revise automáticamente según tu rúbrica personalizada.</p>
         </div>
-        <div class="faq-answer">
-          <p>Nuestra IA analiza las respuestas de los estudiantes comparándolas con tu rúbrica personalizada. Utiliza procesamiento de lenguaje natural para entender el contenido y asigna puntajes basados en palabras clave y criterios predefinidos.</p>
+        
+        <div class="card">
+          <div class="card-icon">
+            <fa-icon [icon]="['fas', 'file-excel']" class='icon-feature'></fa-icon>
+          </div>
+          <h3>Informes de Notas</h3>
+          <p>Recibe informes detallados en formato Excel con las calificaciones y observaciones de cada estudiante.</p>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <fa-icon [icon]="['fas', 'user-graduate']" class='icon-feature'></fa-icon>
+          </div>
+          <h3>Perfiles de Estudiantes</h3>
+          <p>Genera perfiles automáticos de cada estudiante basados en su desempeño, identificando fortalezas y áreas de mejora.</p>
         </div>
       </div>
       
-      <div class="faq-item" [class.active]="isFaqActive(1)">
-        <div class="faq-question" (click)="toggleFAQ(1)">
-          <span>¿Qué formatos de pruebas acepta el sistema?</span>
-          <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon>
-        </div>
-        <div class="faq-answer">
-          <p>Aceptamos imágenes en formato JPG, PNG y documentos PDF. Las pruebas deben estar claramente legibles y cada imagen debe contener un solo examen completo.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item" [class.active]="isFaqActive(2)">
-        <div class="faq-question" (click)="toggleFAQ(2)">
-          <span>¿Cómo se generan los perfiles de estudiantes?</span>
-          <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon>
-        </div>
-        <div class="faq-answer">
-          <p>Analizamos el desempeño histórico de cada estudiante en diferentes áreas temáticas, identificando patrones de fortalezas y debilidades. Estos perfiles se actualizan automáticamente con cada nueva evaluación.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item" [class.active]="isFaqActive(3)">
-        <div class="faq-question" (click)="toggleFAQ(3)">
-          <span>¿Es segura la información de mis estudiantes?</span>
-          <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon>
-        </div>
-        <div class="faq-answer">
-          <p>Sí, cumplimos con todas las normativas de protección de datos (GDPR y LOPD). Toda la información se almacena cifrada y solo tú tienes acceso a los datos de tus estudiantes.</p>
-        </div>
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="#contacto" class="buttonSteps">Probar ahora</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
   <!-- About Section -->
   <section class="section about" id="quienes-somos">
     <div class="container-about">
@@ -119,51 +108,51 @@
   <!-- FAQ Section -->
   <section class="section faq" id="faq">
     <div class="container">
-      <h2 class="section-title">Preguntas Frecuentes</h2>
-      <p class="section-subtitle">Resolvemos tus dudas sobre Revisapp y cómo puede ayudarte en tu labor docente</p>
-      
-      <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>¿Cómo funciona la revisión automática?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Nuestra IA analiza las respuestas de los estudiantes comparándolas con tu rúbrica personalizada. Utiliza procesamiento de lenguaje natural para entender el contenido y asigna puntajes basados en palabras clave y criterios predefinidos.</p>
-          </div>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Resolvemos tus dudas sobre Revisapp y cómo puede ayudarte en tu labor docente</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Cómo funciona la revisión automática?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nuestra IA analiza las respuestas de los estudiantes comparándolas con tu rúbrica personalizada. Utiliza procesamiento de lenguaje natural para entender el contenido y asigna puntajes basados en palabras clave y criterios predefinidos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Qué formatos de pruebas acepta el sistema?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceptamos imágenes en formato JPG, PNG y documentos PDF. Las pruebas deben estar claramente legibles y cada imagen debe contener un solo examen completo.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Cómo se generan los perfiles de estudiantes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Analizamos el desempeño histórico de cada estudiante en diferentes áreas temáticas, identificando patrones de fortalezas y debilidades. Estos perfiles se actualizan automáticamente con cada nueva evaluación.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Es segura la información de mis estudiantes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, cumplimos con todas las normativas de protección de datos (GDPR y LOPD). Toda la información se almacena cifrada y solo tú tienes acceso a los datos de tus estudiantes.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>¿Qué formatos de pruebas acepta el sistema?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Aceptamos imágenes en formato JPG, PNG y documentos PDF. Las pruebas deben estar claramente legibles y cada imagen debe contener un solo examen completo.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>¿Cómo se generan los perfiles de estudiantes?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Analizamos el desempeño histórico de cada estudiante en diferentes áreas temáticas, identificando patrones de fortalezas y debilidades. Estos perfiles se actualizan automáticamente con cada nueva evaluación.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>¿Es segura la información de mis estudiantes?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Sí, cumplimos con todas las normativas de protección de datos (GDPR y LOPD). Toda la información se almacena cifrada y solo tú tienes acceso a los datos de tus estudiantes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Contact Section -->
